@@ -25,12 +25,41 @@ public class Dog extends Animal {
     }
 
     public void makeNoise() {       // Overriding method makeNoise(), it has the same signature as Animal makeNoise() method, but it's overwritten here, since Dog class extends Animal class
-
+        if(type == "Wolf") {
+            System.out.print("Ow Wooo!");
+        }
+        bark();
+        System.out.println();
     }
 
     @Override
     public void move(String speed) {
         super.move(speed);
-        System.out.println("Dogs walk, run and wag their tail");
+//        System.out.println("Dogs walk, run and wag their tail");
+        if (speed == "slow") {
+            walk();
+            wagTail();
+        } else  {
+            run();
+            bark();
+        }
+
+        System.out.println();
+    }
+
+    private void bark() {
+        System.out.print("Woof! ");
+    }
+
+    private void run() {
+        System.out.print("Dog Running ");
+    }
+
+    private void walk() {
+        System.out.print("Dog Walking ");
+    }
+
+    private void wagTail() {
+        System.out.print("Tail Wagging");
     }
 }
